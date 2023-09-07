@@ -22,4 +22,20 @@ formulario.addEventListener('submit', async e=>{
         },
         body:JSON.stringify({text:inputF.value,nombre:user.nombre})
     })
+
+    obtenerLista();
 })
+
+const obtenerLista = async ()=>{
+    const respuesta = await fetch('http://localhost:3000/tareas', {
+        method:'GET'
+    });
+    const list = await respuesta.json();
+    const userList = list.filter(lista => lista.nombre === user.nombre);
+    //console.log(userList)
+    userList.forEach(lista => {
+        const listado = document.createElement('li');
+        listado.innerHTML = `${i.text}`
+        lista.appendChild(listado)
+    })
+}
