@@ -35,7 +35,12 @@ const obtenerLista = async ()=>{
     //console.log(userList)
     userList.forEach(lista => {
         const listado = document.createElement('li');
-        listado.innerHTML = `${i.text}`
+        listado.innerHTML = `
+         <li id=${i.id} class="todo-item">
+        <button class="delete-btn">&#10006;</button>
+        ${i.text}
+        <button class="check-btn">&#10003;</button>
+      </li> `
         lista.appendChild(listado)
     })
 }
