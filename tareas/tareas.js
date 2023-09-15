@@ -64,6 +64,7 @@ lista.addEventListener('click', async e=> {
         //console.log(id)
         //console.log('eliminar');
     } else if(e.target.classList.contains('check-btn')) {
+        const id = e.target.parentElement.id;
         console.log('check');
         const respuestaJSON = await fetch(`http://localhost:3000/tareas/${id}`, {
             method: 'PATCH',
